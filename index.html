@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emil Vorobev</title>
+  <meta name="description" content="Emil Vorobev — backend and AI engineer. .NET, distributed systems, LLM applications.">
+  <link rel="icon" href="images/emil.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --rule: #e6e6e6;
+      --link: #1a5fb4;
+      --tag-bg: #f3f3f3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #111214;
+        --text: #e6e6e6;
+        --muted: #9a9a9a;
+        --rule: #2a2b2e;
+        --link: #78aeff;
+        --tag-bg: #1d1e21;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #111214;
+      --text: #e6e6e6;
+      --muted: #9a9a9a;
+      --rule: #2a2b2e;
+      --link: #78aeff;
+      --tag-bg: #1d1e21;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 64px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { display: flex; gap: 32px; align-items: center; }
+    header .intro { flex: 1; }
+    h1 { font-size: 32px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; }
+    .role { color: var(--muted); margin: 0 0 16px; }
+    .photo { width: 168px; height: 168px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .links { font-size: 15px; }
+    .links a { white-space: nowrap; }
+
+    h2 {
+      font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+    }
+    p { margin: 0 0 12px; }
+
+    .item { margin-bottom: 28px; }
+    .item-title { font-weight: 600; }
+    .item-meta { color: var(--muted); font-size: 14px; font-style: italic; }
+    .item p { margin: 6px 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
+    .tags span {
+      font: 12px/1 "JetBrains Mono", ui-monospace, monospace;
+      background: var(--tag-bg); padding: 4px 7px; border-radius: 4px;
+    }
+    .item-links { font-size: 14px; }
+
+    ul.skills { list-style: none; padding: 0; margin: 0; }
+    ul.skills li { margin-bottom: 8px; }
+    ul.skills b { font-weight: 600; }
+
+    footer { margin-top: 56px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 600px) {
+      main { padding-top: 32px; }
+      header { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+      .photo { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="intro">
+      <h1>Emil Vorobev</h1>
+      <p class="role">Backend &amp; AI Engineer</p>
+      <p>
+        I build backend systems in .NET: event-driven services on RabbitMQ, PostgreSQL,
+        real-time communication with SignalR and WebRTC, and the observability that keeps
+        them honest in production.
+      </p>
+      <p>
+        Lately I've been focused on LLM applications. I designed and wrote
+        <a href="#chorus">Chorus</a>, a production platform for customer-support
+        AI agents with RAG, tool calling and a prompt-management admin panel.
+      </p>
+      <div class="links">
+        [<a href="mailto:vorobevemil@gmail.com">Email</a>]
+        [<a href="https://github.com/VorobevEmil">GitHub</a>]
+        [<a href="https://www.linkedin.com/in/vorobevemil/">LinkedIn</a>]
+        [<a href="https://t.me/emilvorob">Telegram</a>]
+      </div>
+    </div>
+    <img class="photo" src="images/emil.png" alt="Emil Vorobev">
+  </header>
+
+  <h2>Projects</h2>
+
+  <div class="item" id="chorus">
+    <div class="item-title">Chorus — LLM agent platform</div>
+    <div class="item-meta">Production, closed source · 2026</div>
+    <p>
+      API server and admin panel for customer-support AI agents that talk to clients in
+      messengers. Stateful sessions with conversation memory and hand-off to a human
+      operator, retrieval-augmented generation over a knowledge base in PostgreSQL +
+      pgvector, agent tools, versioned prompts with publishing, streaming responses,
+      attachment and PDF understanding. Models are called through LiteLLM, so the
+      provider can be swapped without code changes.
+    </p>
+    <p>
+      Built as a Vertical Slice Architecture service with architecture tests enforcing
+      the boundaries; covered by quality audits and capacity testing before launch.
+    </p>
+    <div class="tags">
+      <span>.NET</span><span>LLM</span><span>RAG</span><span>pgvector</span>
+      <span>LiteLLM</span><span>SignalR</span><span>EF Core</span><span>Docker</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Vibic Platform</div>
+    <div class="item-meta">Personal project · 2026</div>
+    <p>
+      A Discord-like communication platform: servers, text channels, direct messages,
+      voice channels and 1-to-1 audio/video calls. Seven .NET microservices behind an
+      Ocelot gateway, messaging via RabbitMQ + Wolverine with inbox/outbox, media over
+      WebRTC with SignalR signaling, files in MinIO, React 19 frontend.
+    </p>
+    <div class="tags">
+      <span>.NET 10</span><span>Microservices</span><span>WebRTC</span><span>SignalR</span>
+      <span>RabbitMQ</span><span>Wolverine</span><span>React</span><span>PostgreSQL</span>
+    </div>
+    <div class="item-links">[<a href="https://github.com/VorobevEmil/Vibic-Platform">Code</a>]</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Large File Sorter</div>
+    <div class="item-meta">Personal project · 2026</div>
+    <p>
+      External merge sort for files far larger than RAM (think 100&nbsp;GB):
+      sorts chunks in memory, then merges them from disk. Comes with a
+      reproducible test-data generator.
+    </p>
+    <div class="tags"><span>C#</span><span>Algorithms</span><span>Performance</span></div>
+    <div class="item-links">[<a href="https://github.com/VorobevEmil/LargeFileSorter">Code</a>]</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Console 3D Engine &amp; ASCII Video</div>
+    <div class="item-meta">Personal projects · 2025–2026</div>
+    <p>
+      A software 3D renderer that loads Wavefront OBJ models and draws them in the
+      terminal, and a player that decodes video with FFmpeg and plays it as ASCII
+      animation. Graphics from first principles.
+    </p>
+    <div class="tags"><span>C#</span><span>Graphics</span></div>
+    <div class="item-links">
+      [<a href="https://github.com/VorobevEmil/Console3DEngine">3D Engine</a>]
+      [<a href="https://github.com/VorobevEmil/Video-animation-in-ASCII">ASCII Video</a>]
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">Visa Appointment Checker</div>
+    <div class="item-meta">Personal project · 2026</div>
+    <p>
+      Browser automation that watches a consular booking site for free slots and
+      notifies via Telegram. Runs in Docker with a VNC session for manual CAPTCHA
+      solving and persists cookies between checks.
+    </p>
+    <div class="tags"><span>Python</span><span>Browser automation</span><span>Docker</span><span>Telegram API</span></div>
+    <div class="item-links">[<a href="https://github.com/VorobevEmil/italy-visa-checker">Code</a>]</div>
+  </div>
+
+  <h2>Skills</h2>
+  <ul class="skills">
+    <li><b>Backend:</b> C#, .NET, ASP.NET Core, EF Core, Wolverine, SignalR, gRPC</li>
+    <li><b>AI:</b> LLM agents, RAG, embeddings &amp; pgvector, prompt engineering, tool calling, LiteLLM, Claude Code</li>
+    <li><b>Data &amp; messaging:</b> PostgreSQL, RabbitMQ, MinIO</li>
+    <li><b>Frontend:</b> TypeScript, Vue, React</li>
+    <li><b>Ops:</b> Docker, GitLab CI, Grafana, Prometheus, Graylog, Sentry, SonarQube</li>
+  </ul>
+
+  <footer>© 2026 Emil Vorobev</footer>
+
+</main>
+</body>
+</html>
