@@ -62,6 +62,14 @@
     }
     p { margin: 0 0 12px; }
 
+    .job { margin-bottom: 24px; }
+    .job-head { display: flex; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; }
+    .job-title { font-weight: 600; }
+    .job-meta { color: var(--muted); font-size: 14px; }
+    .job-project { margin-top: 6px; }
+    .job ul { margin: 6px 0 0; padding-left: 18px; }
+    .job li { margin-bottom: 4px; }
+
     ul.skills { list-style: none; padding: 0; margin: 0; }
     ul.skills li { margin-bottom: 8px; }
     ul.skills b { font-weight: 600; }
@@ -97,6 +105,35 @@
     <img class="photo" src="images/emil.jpg" alt="Emil Vorobev">
   </header>
 
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Senior Backend Developer (.NET) · Digital Finance International</span>
+      <span class="job-meta">Apr 2023 – present<span class="duration" data-start="2023-04"></span></span>
+    </div>
+    <div class="job-meta">Fintech vendor serving 10+ countries · Belgrade</div>
+    <div class="job-head job-project">
+      <span>Project: <b>Novacard</b>, a Mexican neobank</span>
+      <span class="job-meta">Nov 2024 – present<span class="duration" data-start="2024-11"></span></span>
+    </div>
+    <ul>
+      <li>Backend for an AI-assisted customer support platform: 160k+ conversations a month, over 80% resolved without a human operator.</li>
+      <li>Multi-channel communication platform (Email, SMS, Push, WhatsApp) across 20+ microservices; led a messaging migration that raised throughput by 60%.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="job-title">Backend Engineer (.NET) · Center of Information Technologies</span>
+      <span class="job-meta">Nov 2021 – Apr 2023<span class="duration" data-start="2021-11" data-end="2023-04"></span></span>
+    </div>
+    <div class="job-meta">Enterprise software provider</div>
+    <ul>
+      <li>Backend APIs for an internal ML-assisted support chatbot, cutting employee support workload by 55%.</li>
+    </ul>
+  </div>
+
   <h2>Stack</h2>
   <ul class="skills">
     <li><b>AI:</b> LLM agents, RAG, embeddings &amp; pgvector, prompt engineering, tool calling, LiteLLM, Claude Code</li>
@@ -109,5 +146,18 @@
   <footer>© 2026 Emil Vorobev</footer>
 
 </main>
+<script>
+  // LinkedIn-style duration: both start and end months count.
+  document.querySelectorAll('.duration').forEach(function (el) {
+    var start = el.dataset.start.split('-').map(Number);
+    var now = new Date();
+    var end = el.dataset.end ? el.dataset.end.split('-').map(Number) : [now.getFullYear(), now.getMonth() + 1];
+    var total = (end[0] - start[0]) * 12 + (end[1] - start[1]) + 1;
+    var y = Math.floor(total / 12), m = total % 12, parts = [];
+    if (y) parts.push(y + (y === 1 ? ' yr' : ' yrs'));
+    if (m) parts.push(m + (m === 1 ? ' mo' : ' mos'));
+    el.textContent = ' · ' + parts.join(' ');
+  });
+</script>
 </body>
 </html>
