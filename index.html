@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Emil Vorobev</title>
-  <meta name="description" content="Emil Vorobev — backend and AI engineer. .NET, distributed systems, LLM applications.">
+  <meta name="description" content="Emil Vorobev — AI engineer. LLM agents, RAG, .NET backend.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,17 +62,6 @@
     }
     p { margin: 0 0 12px; }
 
-    .item { margin-bottom: 28px; }
-    .item-title { font-weight: 600; }
-    .item-meta { color: var(--muted); font-size: 14px; font-style: italic; }
-    .item p { margin: 6px 0; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
-    .tags span {
-      font: 12px/1 "JetBrains Mono", ui-monospace, monospace;
-      background: var(--tag-bg); padding: 4px 7px; border-radius: 4px;
-    }
-    .item-links { font-size: 14px; }
-
     ul.skills { list-style: none; padding: 0; margin: 0; }
     ul.skills li { margin-bottom: 8px; }
     ul.skills b { font-weight: 600; }
@@ -92,16 +81,11 @@
   <header>
     <div class="intro">
       <h1>Emil Vorobev</h1>
-      <p class="role">Backend &amp; AI Engineer</p>
+      <p class="role">AI Engineer</p>
       <p>
-        I build backend systems in .NET: event-driven services on RabbitMQ, PostgreSQL,
-        real-time communication with SignalR and WebRTC, and the observability that keeps
-        them honest in production.
-      </p>
-      <p>
-        Lately I've been focused on LLM applications. I designed and wrote
-        <a href="#chorus">Chorus</a>, a production platform for customer-support
-        AI agents with RAG, tool calling and a prompt-management admin panel.
+        I'm an AI engineer. I build LLM applications: agents with tool calling,
+        retrieval-augmented generation over knowledge bases, prompt management and
+        evaluation, and the .NET backend that runs them in production.
       </p>
       <div class="links">
         [<a href="mailto:vorobevemil@gmail.com">Email</a>]
@@ -113,49 +97,10 @@
     <img class="photo" src="images/emil.jpg" alt="Emil Vorobev">
   </header>
 
-  <h2>Projects</h2>
-
-  <div class="item" id="chorus">
-    <div class="item-title">Chorus — LLM agent platform</div>
-    <div class="item-meta">Production, closed source · 2026</div>
-    <p>
-      API server and admin panel for customer-support AI agents that talk to clients in
-      messengers. Stateful sessions with conversation memory and hand-off to a human
-      operator, retrieval-augmented generation over a knowledge base in PostgreSQL +
-      pgvector, agent tools, versioned prompts with publishing, streaming responses,
-      attachment and PDF understanding. Models are called through LiteLLM, so the
-      provider can be swapped without code changes.
-    </p>
-    <p>
-      Built as a Vertical Slice Architecture service with architecture tests enforcing
-      the boundaries; covered by quality audits and capacity testing before launch.
-    </p>
-    <div class="tags">
-      <span>.NET</span><span>LLM</span><span>RAG</span><span>pgvector</span>
-      <span>LiteLLM</span><span>SignalR</span><span>EF Core</span><span>Docker</span>
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-title">Vibic Platform</div>
-    <div class="item-meta">Personal project · 2026</div>
-    <p>
-      A Discord-like communication platform: servers, text channels, direct messages,
-      voice channels and 1-to-1 audio/video calls. Seven .NET microservices behind an
-      Ocelot gateway, messaging via RabbitMQ + Wolverine with inbox/outbox, media over
-      WebRTC with SignalR signaling, files in MinIO, React 19 frontend.
-    </p>
-    <div class="tags">
-      <span>.NET 10</span><span>Microservices</span><span>WebRTC</span><span>SignalR</span>
-      <span>RabbitMQ</span><span>Wolverine</span><span>React</span><span>PostgreSQL</span>
-    </div>
-    <div class="item-links">[<a href="https://github.com/VorobevEmil/Vibic-Platform">Code</a>]</div>
-  </div>
-
-  <h2>Skills</h2>
+  <h2>Stack</h2>
   <ul class="skills">
-    <li><b>Backend:</b> C#, .NET, ASP.NET Core, EF Core, Wolverine, SignalR, gRPC</li>
     <li><b>AI:</b> LLM agents, RAG, embeddings &amp; pgvector, prompt engineering, tool calling, LiteLLM, Claude Code</li>
+    <li><b>Backend:</b> C#, .NET, ASP.NET Core, EF Core, Wolverine, SignalR, gRPC</li>
     <li><b>Data &amp; messaging:</b> PostgreSQL, RabbitMQ, MinIO</li>
     <li><b>Frontend:</b> TypeScript, Vue, React</li>
     <li><b>Ops:</b> Docker, GitLab CI, Grafana, Prometheus, Graylog, Sentry, SonarQube</li>
